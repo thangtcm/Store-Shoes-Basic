@@ -1,0 +1,55 @@
+﻿@model IEnumerable<StoreShoe.Models.Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Shop shoe</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Giày chất lượng nhất cho người dùng</p>
+        </div>
+    </div>
+</header>
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-3 justify-content-center">
+            @foreach (var item in Model) {
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        @if (string.IsNullOrEmpty(item.ImageName))
+                        {
+                            <img src="~/Image/no_image.jpg" class="card-img-top" alt="..." style="width = 400px; height = 300px; object-fit: cover;" />
+                        }
+                        else
+                        {
+                            <img src="~/Image/@item.ImageName" class="card-img-top" alt="..." style="width = 400px; height = 300px; object-fit: cover;" />
+                        }
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <h5 class="fw-bolder">@item.ProductName</h5>
+                                @if (item.ProductSale > 0)
+                                {
+                                    <span class="text-muted text-decoration-line-through">$@item.ProductPrice</span>
+                                }
+                                $@(item.ProductPrice - item.ProductSale)
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="float-start">
+                                <a asp-controller="Products" asp-action="Details" class="btn btn-outline-dark mt-auto" asp-route-id="@item.Id">Details</a>
+                            </div>
+                            <div class="float-end">
+                                <a asp-controller="Products" asp-action="AddToCart"
+                               asp-route-productid="@item.Id" class="btn btn-outline-dark mt-auto">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

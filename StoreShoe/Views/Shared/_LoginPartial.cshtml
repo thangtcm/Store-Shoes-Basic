@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using StoreShoe.Core;
+@using StoreShoe.Data;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+<div class="dropdown" style="padding-right:5rem">
+@if (SignInManager.IsSignedIn(User))
+{
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user"></i>
+            <span class="pe-2">@User.Identity?.Name</span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        @if (User.IsInRole(Constants.Roles.Admin))
+        {
+            <li><a class="dropdown-item" asp-area="Admin" asp-controller="HomeAdmin" asp-action="Index">Admin Page</a></li>
+        }
+        <li><a class="dropdown-item"  asp-area="Identity" asp-page="/Account/Manage/Index">Setting</a></li>
+        <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                Logout
+            </a>
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    </ul>
+}
+</div>

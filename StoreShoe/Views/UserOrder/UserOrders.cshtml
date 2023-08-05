@@ -1,0 +1,76 @@
+﻿@*@model IEnumerable<StoreShoe.Models.Order>
+@{
+    ViewData["Title"] = "GetUserCart";
+}
+
+
+<div style="width:100%" class="mt-2">
+    <a href="/Identity/Account/Manage" class="btn btn-primary my-2">Back</a>
+
+    <h4>My Orders</h4>
+    @if (Model != null && Model.Count() > 0)
+    {
+        <table class="table table-striped">
+            <tr>
+                <th>OrderDate</th>
+                <th>OrderStatus</th>
+            </tr>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.CreateDate.ToString("dd-MM-yyyy")</td>
+                    <td>@order.OrderStatus.StatusName</td>
+                </tr>
+                @if (order.OrderDetail != null && order.OrderDetail.Count > 0)
+                {
+                    <tr>
+                        <td>
+                            <table class="table table-striped">
+                                <tr>
+                                    <td>
+                                        Total:
+                                    </td>
+                                    <td>
+                                        @(order.OrderDetail.Select(item => (item.Product.ProductPrice - item.Product.ProductSale) * item.Quantity).Sum())
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Giày</th>
+                                    <th>Image</th>
+                                    <th>Đơn giá(INR)</th>
+                                    <th>Giảm giá</th>
+                                    <th>Tổng cộng</th>
+                                </tr>
+                                @foreach (var item in order.OrderDetail)
+                                {
+                                    <tr>
+                                        <td>@item.Product.ProductName</td>
+                                        <td>
+                                            @if (string.IsNullOrEmpty(item.Product.ImageName))
+                                            {
+                                                <img src="~/Image/no_image.jpg" style="width:80px;height:100px" />
+                                            }
+                                            else
+                                            {
+                                                <img src="~/Image/@item.Product.ImageName" style="width:80px;height:100px" />
+                                            }
+                                        </td>
+                                        <td>@(item.Product.ProductPrice ) X @item.Quantity</td>
+                                        <td>@item.Product.ProductSale X @item.Quantity</td>
+                                        <td> @((item.Product.ProductPrice - item.Product.ProductSale) * item.Quantity) </td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+
+    }
+    else
+    {
+        <h5>No orders</h5>
+    }
+</div>*@
