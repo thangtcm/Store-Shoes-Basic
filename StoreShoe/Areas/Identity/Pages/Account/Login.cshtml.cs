@@ -82,7 +82,7 @@ namespace StoreShoe.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Ghi nhớ?")]
             public bool RememberMe { get; set; }
         }
 
@@ -129,7 +129,7 @@ namespace StoreShoe.Areas.Identity.Pages.Account
                     }
 
                     await _signInManager.SignInWithClaimsAsync(user, Input.RememberMe, claims);
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Đăng nhập thất bại.");
                     return Page();
                 }
                 // This doesn't count login failures towards account lockout
@@ -137,7 +137,7 @@ namespace StoreShoe.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
+                    _logger.LogInformation("Tài khoản đã đăng nhập.");
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -146,12 +146,12 @@ namespace StoreShoe.Areas.Identity.Pages.Account
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    _logger.LogWarning("Tài khoản đã đăng xuất");
                     return RedirectToPage("./Lockout");
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Đăng nhập thất bại.");
                     return Page();
                 }
             }

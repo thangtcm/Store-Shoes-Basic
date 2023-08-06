@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tiU3XgHoP6b/UtY3ZlL9Jfl7TiParRfZcDcIn/wJOhs=",
+  "Hash": "tqZXfY4QY/72on67Sdz0OYEmRC4PfJC5mw/7OKfqd3s=",
   "Source": "StoreShoe",
   "BasePath": "_content/StoreShoe",
   "Mode": "Default",
@@ -1154,6 +1154,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Image\\316535330_575103304614810_5267373571795743056_n-removebg-preview232525135.png"
+    },
+    {
+      "Identity": "D:\\StoreShoe\\StoreShoe\\wwwroot\\Image\\41fFK0sxSZL._AC_UY1000_232101719.jpg",
+      "SourceId": "StoreShoe",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\StoreShoe\\StoreShoe\\wwwroot\\",
+      "BasePath": "_content/StoreShoe",
+      "RelativePath": "Image/41fFK0sxSZL._AC_UY1000_232101719.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\41fFK0sxSZL._AC_UY1000_232101719.jpg"
+    },
+    {
+      "Identity": "D:\\StoreShoe\\StoreShoe\\wwwroot\\Image\\41fFK0sxSZL._AC_UY1000_232130034.jpg",
+      "SourceId": "StoreShoe",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\StoreShoe\\StoreShoe\\wwwroot\\",
+      "BasePath": "_content/StoreShoe",
+      "RelativePath": "Image/41fFK0sxSZL._AC_UY1000_232130034.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\41fFK0sxSZL._AC_UY1000_232130034.jpg"
     },
     {
       "Identity": "D:\\StoreShoe\\StoreShoe\\wwwroot\\Image\\41fFK0sxSZL._AC_UY1000_232349136.jpg",

@@ -109,7 +109,7 @@ namespace StoreShoe.Controllers
         [Authorize]
         public IActionResult CheckoutComplete()
         {
-            ViewBag.CheckoutCompleteMessage = $"Thanks for your order, We'll deliver your shoe soon!";
+            ViewBag.CheckoutCompleteMessage = $"Cảm ơn bạn đã đặt hàng, chúng tôi sẽ giao hàng cho bạn sớm nhất!";
             return View();
         }
 
